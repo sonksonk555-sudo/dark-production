@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dark Production</title>
+
+<style>
+body {
+  margin: 0;
+  background: black;
+  overflow: hidden;
+  font-family: Arial;
+}
+
+/* фон */
+body::before {
+  content: "";
+  position: fixed;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.07) 1px, transparent 1px);
+  background-size: 40px;
+  animation: move 20s linear infinite;
+}
+
+@keyframes move {
+  from { transform: translate(0,0); }
+  to { transform: translate(-200px,-200px); }
+}
+
+.container {
+  text-align: center;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* картинка */
+img {
+  width: 90%;
+  max-width: 900px;
+  border-radius: 20px;
+  opacity: 0;
+  animation: fade 1.5s forwards;
+}
+
+@keyframes fade {
+  to { opacity: 1; }
+}
+
+/* кнопки */
+.buttons {
+  margin-top: -120px;
+}
+
+.btn {
+  display: inline-block;
+  margin: 10px;
+  padding: 12px 25px;
+  border-radius: 25px;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: 0.3s;
+  opacity: 0;
+  animation: up 1s forwards;
+}
+
+.btn:nth-child(1){animation-delay:0.5s;}
+.btn:nth-child(2){animation-delay:0.7s;}
+.btn:nth-child(3){animation-delay:0.9s;}
+
+@keyframes up {
+  from { transform: translateY(30px); opacity:0; }
+  to { transform: translateY(0); opacity:1; }
+}
+
+.btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px white;
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
+
+/* адаптация */
+@media(max-width:600px){
+  .buttons { margin-top: -80px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<img src="your-image.jpg">
+
+<div class="buttons">
+<a href="https://t.me/d_production" class="btn">D PRODUCTION</a>
+<a href="https://t.me/dxprds" class="btn">PORTFOLIO</a>
+<a href="https://t.me/scmdark" class="btn">@scmdark</a>
+</div>
+
+</div>
+
+</body>
+</html>
